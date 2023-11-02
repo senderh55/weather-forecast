@@ -1,0 +1,22 @@
+/* Search Bar */
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Corrected from 'flex' to '100%' */
+  top: 30px;
+  position: absolute; /* Positioned absolutely within the container */
+  z-index: 3; /* Higher z-index to ensure it's above other elements */
+}
+
+.searchBar input {
+  width: 330px;
+  height: 30px;
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 16px;
+  background-color: rgb(15, 17, 30);
+  color: #ffffff;
+  border: none; /* Remove default border */
+  outline: none; /* Remove focus outline for aesthetics */
+}

@@ -1,0 +1,60 @@
+.weatherDisplay {
+  display: flex;
+  font-family: "SF Pro Text", sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to bottom left,
+    transparent 35%,
+    rgba(89, 54, 180, 1) 10%
+  );
+  margin-top: 100px;
+  margin-bottom: -60px;
+  border-radius: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  width: 342px;
+  height: 184px;
+  position: relative;
+  z-index: 2;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.temperature {
+  font-size: 3em; /* Large font for temperature */
+  margin-left: 20px;
+}
+
+.details {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.smallPrint {
+  font-size: 0.6em; /* Smaller font for additional details */
+  font-family: "SF Pro Display", sans-serif; /* Assuming 'SF Pro Display' is the correct name */
+  font-weight: 100; /* '100' is the lightest available weight in most fonts */
+}
+
+.cityName {
+  font-size: 1.2em; /* Regular text for city and country name */
+  margin-top: 8px;
+  margin-bottom: -35px;
+}
+
+.rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  width: 100px; /* Large size for the logo */
+  height: auto; /* Maintain aspect ratio */
+}
