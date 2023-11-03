@@ -42,6 +42,9 @@ const WeatherDisplay: FC<WeatherDisplayProps> = ({ weatherData }) => {
           alt="Weather Logo"
           className={styles.logoImage}
         />
+        <div className={styles.description}>
+          {DUMMY_WEATHER_DATA.description}
+        </div>
       </div>
     </div>
   );

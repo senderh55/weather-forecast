@@ -2,24 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Changed to flex-start to align children to the top */
-  height: 100vh; /* This might conflict with the height you set below (844px), you should use one or the other */
+  justify-content: flex-start;
   font-family: "SF Pro Text", sans-serif;
   background: linear-gradient(
     rgba(30, 30, 55, 1),
     rgba(46, 51, 90, 1),
     rgba(89, 54, 180, 1)
   );
-  background-color: rgba(
-    171,
-    47,
-    171,
-    0
-  ); /* This might not be necessary since you have a gradient background */
+  background-color: rgba(171, 47, 171, 0);
   width: 390px;
-  height: 844px; /* This is conflicting with the 100vh above */
+  height: 844px;
   border-radius: 40px;
   margin: auto;
-  position: relative; /* This is necessary for absolute positioning of children */
-  overflow: hidden; /* This will hide any overflow such as shadows or borders that exceed the container's rounded corners */
+  position: relative;
+  overflow: hidden;
 }
