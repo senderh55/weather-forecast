@@ -10,41 +10,45 @@ import {
   tornado,
 } from "../assets/images";
 
-const DUMMY_WEATHER_DATA = {
-  city: "London",
-  country: "UK",
-  description: "Sunny",
-  temperature: 20,
-  humidity: 80,
-  windSpeed: 10,
-  logo: sun_mid_rain,
+const getRandomLogo = () => {
+  const images = [
+    angled_rain,
+    cloud_mid_rain,
+    fast_wind,
+    sun_mid_rain,
+    tornado,
+  ];
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  return randomImage;
 };
 
 const WeatherDisplay: FC<WeatherDisplayProps> = ({ weatherData }) => {
+  if (!weatherData) {
+    return null;
+  }
+  // Use the weatherData prop instead of DUMMY_WEATHER_DATA
   return (
     <div className={styles.weatherDisplay}>
       <div className={styles.leftSide}>
-        <div className={styles.temperature}>
-          {DUMMY_WEATHER_DATA.temperature}°
-        </div>
+        <div className={styles.temperature}>{weatherData.temperature}°</div>
         <div className={styles.details}>
           <div className={styles.smallPrint}>
-            H: {DUMMY_WEATHER_DATA.humidity}° L: {DUMMY_WEATHER_DATA.windSpeed}°
+            H: {weatherData.highestTemp}° L: {weatherData.lowestTemp}°
           </div>
           <div className={styles.cityName}>
-            {DUMMY_WEATHER_DATA.city}, {DUMMY_WEATHER_DATA.country}
+            {weatherData.cityName}, {weatherData.country}
           </div>
         </div>
       </div>
       <div className={styles.rightSide}>
         <Image
-          src={DUMMY_WEATHER_DATA.logo}
+          src={getRandomLogo()}
           alt="Weather Logo"
+          width={100}
+          height={100}
           className={styles.logoImage}
         />
-        <div className={styles.description}>
-          {DUMMY_WEATHER_DATA.description}
-        </div>
+        <div className={styles.description}>{weatherData.description}</div>
       </div>
     </div>
   );

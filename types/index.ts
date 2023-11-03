@@ -1,16 +1,10 @@
-export interface Weather {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
-}
-
 export interface WeatherData {
-  name: string;
-  weather: Weather[];
-  main: {
-    temp: number;
-  };
+  cityName: string;
+  country: string;
+  temperature: number;
+  highestTemp: number;
+  lowestTemp: number;
+  description: string;
 }
 
 export interface SearchBarProps {
