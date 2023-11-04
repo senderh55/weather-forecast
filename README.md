@@ -4,14 +4,14 @@ This project is inspired by a Figma design which you can view [here](<https://ww
 
 ## Preview
 
-![Weather App Preview](link-to-your-gif-preview)
+![Weather App Preview](https://github.com/senderh55/weather-forecast/blob/main/assets/preview/weather_react_app.gif)
 
 ## Installation
 
 First, Clone the repository:
 
 ```sh
-git clone https://github.com/senderh55/assets\preview\weather_react_app.gif
+git clone https://github.com/senderh55/weather-forecast.git
 ```
 
 Then Navigate to the project directory:
