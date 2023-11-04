@@ -7,7 +7,6 @@ const WeatherDisplay: FC<WeatherDisplayProps> = ({ weatherData }) => {
   if (!weatherData) {
     return null;
   }
-  // Use the weatherData prop instead of DUMMY_WEATHER_DATA
   return (
     <div className={styles.weatherDisplay}>
       <div className={styles.leftSide}>

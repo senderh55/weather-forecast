@@ -22,14 +22,14 @@ const getRandomLogo = (): StaticImageData => {
   const randomImage = images[Math.floor(Math.random() * images.length)];
   return randomImage;
 };
+
 const fetchWeather = async (city: string): Promise<WeatherData> => {
   if (!city.trim()) {
     throw new Error("City name cannot be empty.");
   }
 
   const apiKey: string =
-    process.env.NEXT_PUBLIC_WEATHER_API_KEY ??
-    "4a60e80bf7395ca666d7f695ba42cd8e";
+    process.env.NEXT_PUBLIC_WEATHER_API_KEY || "your-api-key";
   const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   try {
     const response = await axios.get(url);
@@ -51,6 +51,8 @@ const fetchWeather = async (city: string): Promise<WeatherData> => {
       switch (error.response?.status) {
         case 400:
           throw new Error("Input is empty or malformed.");
+        case 401:
+          throw new Error("Api key not found.");
         case 404:
           throw new Error("Location not found.");
         case 500:

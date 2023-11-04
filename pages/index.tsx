@@ -1,4 +1,3 @@
-// Home.tsx
 import React, { useState, useEffect, FC } from "react";
 import SearchBar from "../components/SearchBar";
 import WeatherDisplay from "../components/WeatherDisplay";
@@ -10,6 +9,7 @@ const Home: FC = () => {
   const [weatherHistory, setWeatherHistory] = useState<WeatherData[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  // Fetch weather data for default cities on first render
   useEffect(() => {
     const defaultCities = ["London", "New York", "Tokyo"];
     const fetchDefaultCitiesWeather = async () => {
