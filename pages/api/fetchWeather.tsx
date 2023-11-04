@@ -1,15 +1,35 @@
 // fetchWeather.ts
 import axios from "axios";
 import { WeatherData } from "../../types";
-import dotenv from "dotenv";
-dotenv.config();
+import {
+  angled_rain,
+  cloud_mid_rain,
+  fast_wind,
+  sun_mid_rain,
+  tornado,
+} from "../../assets/images";
+
+import { StaticImageData } from "next/image";
+
+const getRandomLogo = (): StaticImageData => {
+  const images: StaticImageData[] = [
+    angled_rain,
+    cloud_mid_rain,
+    fast_wind,
+    sun_mid_rain,
+    tornado,
+  ];
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  return randomImage;
+};
 const fetchWeather = async (city: string): Promise<WeatherData> => {
   if (!city.trim()) {
     throw new Error("City name cannot be empty.");
   }
-  console.log(process.env);
+
   const apiKey: string =
-    process.env.NEXT_PUBLIC_WEATHER_API_KEY ?? "your_default_api_key";
+    process.env.NEXT_PUBLIC_WEATHER_API_KEY ??
+    "4a60e80bf7395ca666d7f695ba42cd8e";
   const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   try {
     const response = await axios.get(url);
@@ -22,6 +42,7 @@ const fetchWeather = async (city: string): Promise<WeatherData> => {
       highestTemp: Math.round(data.main.temp_max),
       lowestTemp: Math.round(data.main.temp_min),
       description: data.weather[0].description,
+      logo: getRandomLogo(),
     };
 
     return weatherData;

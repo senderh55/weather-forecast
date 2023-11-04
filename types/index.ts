@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface WeatherData {
   cityName: string;
   country: string;
@@ -5,6 +7,7 @@ export interface WeatherData {
   highestTemp: number;
   lowestTemp: number;
   description: string;
+  logo: StaticImageData;
 }
 
 export interface SearchBarProps {
