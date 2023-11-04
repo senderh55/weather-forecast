@@ -24,6 +24,7 @@ const getRandomLogo = () => {
 
 const WeatherDisplay: FC<WeatherDisplayProps> = ({ weatherData }) => {
   if (!weatherData) {
+    console.log("No weather data");
     return null;
   }
   // Use the weatherData prop instead of DUMMY_WEATHER_DATA

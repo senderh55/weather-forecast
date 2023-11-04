@@ -17,3 +17,24 @@
   position: relative;
   overflow: hidden;
 }
+
+.error {
+  color: #ff6b6b; /* Bright red color for visibility */
+  background-color: #ffebeb; /* Light red/pink background */
+  border: 1px solid #ff6b6b; /* Border to emphasize the error */
+  padding: 10px; /* Some padding to ensure the text doesn't touch the edges */
+  border-radius: 5px; /* Rounded corners for a smoother look */
+  margin: 20px 0; /* Add some margin to the top and bottom */
+  width: 90%; /* Error message width */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make the text bold to stand out */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  z-index: 10; /* Ensure the error is above other elements */
+  position: absolute; /* Positioning it absolutely */
+  top: 10%; /* Position from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset by half its width to truly center it */
+  max-height: 50px; /* Maximum height of the error box */
+  overflow: hidden; /* Hide overflow */
+  word-wrap: break-word; /* Ensure long words do not overflow */
+}

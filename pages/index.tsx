@@ -1,3 +1,4 @@
+// Home.tsx
 import React, { useState, useEffect, FC } from "react";
 import SearchBar from "../components/SearchBar";
 import WeatherDisplay from "../components/WeatherDisplay";
@@ -7,8 +8,8 @@ import styles from "../styles/home.module.css";
 
 const Home: FC = () => {
   const [weatherHistory, setWeatherHistory] = useState<WeatherData[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-  // Fetch three cities as default
   useEffect(() => {
     const defaultCities = ["London", "New York", "Tokyo"];
     const fetchDefaultCitiesWeather = async () => {
@@ -17,7 +18,9 @@ const Home: FC = () => {
         const weatherDataArray = await Promise.all(weatherPromises);
         setWeatherHistory(weatherDataArray);
       } catch (error) {
-        console.error(error);
+        if (error instanceof Error) {
+          setError(error.message);
+        }
       }
     };
     fetchDefaultCitiesWeather();
@@ -29,17 +32,22 @@ const Home: FC = () => {
       setWeatherHistory((prevHistory) =>
         [weatherData, ...prevHistory].slice(0, 3)
       );
+      setError(null); // Clear any existing errors
     } catch (error) {
-      console.error(error);
+      if (error instanceof Error) {
+        setError(error.message); // Set the error message to display
+      }
     }
   };
 
   return (
     <div className={styles.container}>
       <SearchBar onSearch={handleSearch} />
-      {weatherHistory.map((data, index) => (
-        <WeatherDisplay key={index} weatherData={data} />
-      ))}
+      {error && <div className={styles.error}>{error}</div>}
+      {weatherHistory.length > 0 &&
+        weatherHistory.map((data, index) => (
+          <WeatherDisplay key={index} weatherData={data} />
+        ))}
     </div>
   );
 };
