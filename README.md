@@ -17,7 +17,7 @@ git clone https://github.com/senderh55/weather-forecast.git
 Then Navigate to the project directory:
 
 ```sh
-cd weather-app
+cd weather-forecast
 ```
 
 ### Using Docker
@@ -26,11 +26,11 @@ To run this app using Docker, follow these steps:
 
 1. Build the Docker image:
    ```sh
-   docker build -t weather-app .
+   docker build -t weather-forecast .
    ```
 2. Run the Docker container:
    ```sh
-    docker run -d -p 3000:3000 weather-app
+    docker run -d -p 3000:3000 weather-forecast
    ```
 
 ### Using Next.js
